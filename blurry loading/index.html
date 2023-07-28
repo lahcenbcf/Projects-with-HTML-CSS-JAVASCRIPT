@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Blurry loading</title>
+</head>
+<body>
+    <div id="section">
+
+    </div>
+    <div class="text">
+        <h1>0</h1>
+    </div>
+    <script>
+       const section=document.getElementById("section")
+        const text=document.querySelector("h1");
+        addEventListener("load",()=>{
+            var counter=100;
+            
+            var looper=setInterval(()=>{
+                section.style.filter=`blur(${counter/10}px)`
+                text.innerHTML=`${counter} %`
+                text.style.opacity=scale(100-counter,0,100,1,0)
+                if(counter==0){
+                    clearInterval(looper)
+                }
+                counter--;
+            },50)
+        })
+        const scale=(num ,in_min,in_max,out_min,out_max)=>((num-in_min)*(out_max-out_min))/(in_max-in_min) + out_min;
+    </script>
+</body>
+</html>

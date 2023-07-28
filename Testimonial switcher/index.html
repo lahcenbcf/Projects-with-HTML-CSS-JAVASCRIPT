@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <title>Testimonial switcher</title>
+</head>
+<body>
+        <div class="testimonial-container">
+            <div class="progress-bar">
+                <div id="nested-bar"></div>
+            </div>
+            <i class="fa-solid fa-quote-right"></i>
+            <i class="fa-solid fa-quote-left"></i>
+            <div class="testimonial">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus, eaque architecto! Aut?</p>
+            </div>
+            
+                <div class="user-info">
+                <div id="image-wrapper"></div>
+                <div class="user-details">
+                    <h4 class="first-name">lahcen</h4>
+                    <p class="role">front-end Dev</p>
+                </div>
+            </div>
+        </div>
+        <script>
+          const testimonials=[
+            {
+                tetimonial:"I used to spend hours writing creative copy, but now all I do is tell Rytr what I need and it writes everything for me. It's the ultimate AI content writer, and a must-have tool for bloggers, marketers, & entrepreneurs.",
+                author:"Meri Pipenbaher",
+                role:"Founder, Vidly",
+                image:"https://storage.googleapis.com/rytr-me/public/image/testimonials/meri.jpg"
+            },
+            {
+                tetimonial:"When it comes to web development, there is no denying  webpage, while CSS adds the necessary style and visual appeal. Together, they form the foundation upon which every successful website is built. HTML and CSS are absolutely indispensable tools in your arsenal.",
+                author:"Hassane BENCHAREF",
+                role:"computer science student",
+                image:"https://randomuser.me/api/portraits/men/32.jpg"
+            },{
+                tetimonial:"js makes me more productive and gets the job done in a fraction of the time. I'm glad I found js.",
+                author:"Frank lampard",
+                role:"web developer",
+                image:"https://randomuser.me/api/portraits/men/1.jpg"
+            }
+          ]
+
+          
+          const testimonialContent=document.querySelector(".testimonial p");
+          const userImage=document.getElementById("image-wrapper");
+          const username=document.querySelector(".user-info .user-details h4");
+          const userRole=document.querySelector(".user-info .user-details p");
+          const progressBar=document.querySelector(".progress-bar");
+
+
+
+
+          function displayTestimonial({tetimonial,author,role,image}){
+            testimonialContent.textContent=tetimonial.substring(0,tetimonial.length>100 ? 100 : tetimonial.length);
+            userImage.style.backgroundImage=`url(${image})`;
+            username.textContent=author;
+            userRole.textContent=role
+          }
+
+
+          let speed=8000;
+          
+          let index=0;
+          
+          setInterval(()=>{
+            
+                displayTestimonial({...testimonials[index]});
+                index++;
+                if(index>testimonials.length-1){
+                    index=0;
+                }
+             
+
+          },speed)
+        </script>
+</body>
+</html>

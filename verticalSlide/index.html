@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>vertical slides</title>
+</head>
+<body>
+    <div class="slides-container">
+        <div class="right-side">
+            <div>
+                content
+            </div>
+            <div>
+                content
+            </div>
+            <div>
+                content
+            </div>
+        </div>
+        <div class="left-side">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="arrows">
+            <i class="fa-solid fa-arrow-up"></i>
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+    </div>
+    <script>
+        const slideArray=[
+            {
+                title:"NEOM SAUDI ARABIA",
+                desc:"Publiée le 28 avril 2023",
+                imgPath:"https://images.unsplash.com/photo-1682685797741-f0213d24418c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+                background:"linear-gradient(to right, #d1913c, #ffd194);"
+            },{
+                title:"HYUNDAI MOTOR GROUP",
+                desc:"Publiée il y a 23 jours",
+                background: "linear-gradient(to right, #16a085, #f4d03f)",
+                imgPath:"https://images.unsplash.com/photo-1688098379407-fbbb35f1d9d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80"
+            },{
+                title:"PRACTICE SPORT",
+                desc:"Publiée il y a 3 jours",
+                background: "linear-gradient(to right, #3d7eaa, #ffe47a)",
+                imgPath:"https://images.unsplash.com/photo-1689863719410-768116c8892f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+            }
+        ]
+
+        const rightSlides=document.querySelectorAll(".right-side div");
+        const leftSlides=document.querySelectorAll(".left-side div");
+        rightSlides.forEach((item,idx)=>{
+            item.innerHTML='';
+            const title=document.createElement("h1");
+            const desc=document.createElement("p");
+            const textNode1=document.createTextNode(slideArray[idx].title);
+            const textNode2=document.createTextNode(slideArray[idx].desc);
+            //item.style.backgroundColor=slideArray[idx].background;
+            item.setAttribute("style",`background:${slideArray[idx].background}`)
+            title.append(textNode1);
+            desc.append(textNode2);
+            item.appendChild(title);
+            item.appendChild(desc);
+
+        })
+
+        leftSlides.forEach((item,idx)=>{
+            item.setAttribute("style",`background-image:url(${slideArray[slideArray.length-idx-1].imgPath});background-size:cover`);
+
+        })
+        const slideRight=rightSlides[0].parentElement;
+        const slideLeft=leftSlides[0].parentElement;
+        const slidesLenght=rightSlides.length;
+        
+        var activeSlideIndex=0;
+        console.log(slideLeft.style.transform)
+        // 0====2 , 1===1,2===0
+        slideLeft.style.transform=`translateY(-200vh)`;
+        const slideContainer=document.querySelector(".slides-container");
+        const upArrow=document.querySelector(".arrows i.fa-arrow-up");
+        const downArrow=document.querySelector(".arrows i.fa-arrow-down");
+       const changeSlides=(direction)=>{
+        
+            if(direction==="up"){
+                activeSlideIndex++;
+            
+            if(activeSlideIndex>slidesLenght-1){
+                activeSlideIndex=0;
+                reset(activeSlideIndex)
+                
+            }else{
+                
+            slideRight.style.transform=`translateY(${-activeSlideIndex*100}vh)`
+            slideLeft.style.transform=`translateY(${-(slidesLenght-1-activeSlideIndex)*100 }vh)`
+            }
+            }
+
+
+            if(direction==="down"){
+                activeSlideIndex--;
+            
+            if(activeSlideIndex<0){
+                activeSlideIndex=slidesLenght-1;
+                reset(activeSlideIndex)
+                
+            }else{
+                
+                slideLeft.style.transform=`translateY(${-activeSlideIndex*100}vh)`
+            slideRight.style.transform=`translateY(${-(slidesLenght-1-activeSlideIndex)*100 }vh)`
+            }
+            }
+        }
+        function reset(idx){
+            if(idx==0){
+                slideRight.style.transform=`translateY(${idx*100}vh)`
+            slideLeft.style.transform=`translateY(${-(slidesLenght-1-idx )*100}vh)`
+            }else{
+                slideRight.style.transform=`translateY(${(slidesLenght-1- idx)*100}vh)`
+            slideLeft.style.transform=`translateY(${-(idx )*100}vh)`
+            }
+            
+        }
+        upArrow.addEventListener("click",()=>changeSlides("up"))
+        downArrow.addEventListener("click",()=>changeSlides("down"))
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>verify UI</title>
+</head>
+<body>
+    <div class="box">
+        <h1>verify your account</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+        <div class="inputs">
+            <input type="number" class="num" min="0" max="0" placeholder="0" required>
+            <input type="number" class="num" min="0" max="0" placeholder="0" required>
+            <input type="number" class="num" min="0" max="0" placeholder="0" required>
+            <input type="number" class="num" min="0" max="0" placeholder="0" required>
+            <input type="number" class="num" min="0" max="0" placeholder="0" required>
+            <input type="number" class="num" min="0" max="0" placeholder="0" required>
+        </div>
+        <button class="submit">send</button>
+    </div>
+    <script>
+        const codes=document.querySelectorAll(".inputs input");
+        codes[0].focus();
+        codes.forEach((code,idx)=>{
+            code.addEventListener("keydown",(e)=>{
+                console.log(e)
+                if(e.key>=0 && e.key<=9 && idx<codes.length-1){
+                     setTimeout(()=> codes[idx+1].focus(),500)
+                }
+                if(e.key==="Backspace"){
+                    setTimeout(()=> codes[idx-1].focus(),500)
+                }
+                if(e.key==="ArrowRight"){
+                    setTimeout(()=> codes[idx+1].focus(),500)
+                }
+            })
+        })
+    </script>
+</body>
+</html>

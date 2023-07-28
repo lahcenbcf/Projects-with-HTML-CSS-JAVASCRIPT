@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+}
+:root{
+    --left-value:88;
+}
+body{
+    position: relative;
+    height: 100vh;
+    font-family: 'Rubik', sans-serif;
+    width: 100vw;
+}
+.range-container{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:20% ;
+}
+.range{
+    width: 100%;
+    height: 20px;
+    background-color: #2e94b9;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.range-label{
+    position: absolute;
+    top: -30px;
+    background-color: #2e94b9;
+    color: white;
+    padding: 5px 10px;
+    left: calc(1px * var(--left-value));
+}

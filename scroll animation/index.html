@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Scroll</title>
+</head>
+<body>
+    <div class="container">
+        <h1>scroll to see !</h1>
+        <div class="box">text</div>
+        <div class="box">text</div>
+        <div class="box">text</div>
+        <div class="box">text</div>
+        <div class="box">text</div>
+        <div class="box">text</div>
+        <div class="box">text</div>
+        <div class="box">text</div>
+        <div class="box">text</div>
+    </div>
+    <script>
+        const boxes=document.querySelectorAll('.box');
+        const checkBoxes=()=>{
+            console.log("called")
+            //we should compare the top of each box with the hight of screen if 
+            //the top is less then the height so the box must appear else not
+            //for the client see the boxes moves we reduce the height
+            const triggerTop=window.innerHeight/3*2;
+            boxes.forEach((box)=>{
+                const boxHeight=box.getBoundingClientRect().top;
+                if(boxHeight<=triggerTop){
+                    box.classList.add("show")
+                }else{
+                    box.classList.remove("show")
+                }
+            })
+        }
+        addEventListener("scroll",checkBoxes);
+    </script>
+</body>
+</html>

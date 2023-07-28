@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --width-value:0;
+}
+body{
+    background-color: #f6f5f5;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+}
+.testimonial-container{
+    width: 60%;
+    height: 300px;
+    border: none;
+    border-radius: 23px;
+background: #e0e0e0;
+box-shadow:  21px 21px 49px #cecece,
+             -21px -21px 49px #f2f2f2;
+             background-color: #3bb4c1;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             padding: 20px 40px;
+             position: relative;
+             transition: all .4s linear;
+}
+.progress-bar{
+    position: relative;
+    width: 80%;
+    height: 3px;
+    margin: 10px 0px;
+    background-color: white;
+    border-radius: 5%;
+    transform-origin: left;
+    animation: progress 8s linear infinite;
+}
+
+@keyframes progress {
+    0%{
+        transform: scaleX(0%);
+    }
+}
+
+.testimonial-container .testimonial{
+    color: white;
+    height: 180px;
+    padding: 20px 10px;
+}
+
+ i.fa-quote-right{
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    opacity: .5;
+    font-size: 20px;
+    color: white;
+}
+i.fa-quote-left{
+    position: absolute;
+    top: 60px;
+    opacity: .5;
+    left:20px;
+    font-size: 20px;
+    color: white;
+}
+
+.user-info{
+    bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.user-info #image-wrapper{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: none;
+    background-position: center;
+    background-size: cover;
+}
+

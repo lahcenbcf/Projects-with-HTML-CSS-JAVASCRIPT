@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>checkBox</title>
+</head>
+<body>
+    <h2>see different models of switch-buttons !</h2>
+    <div class="toggle-container">
+        <input type="checkbox" class="toggle" id="toggle1">
+        <label for="toggle1">
+            <div class="ball"></div>
+        </label>
+        <span class="text">good ?</span>
+    </div>
+    <div class="container">
+        <div class="go">
+            <h3>GO</h3>
+            <button class="start">start</button>
+        </div>
+    
+        <div class="display">
+            <div class="counter">
+              <span class="in">3</span>
+              <span class="">2</span>
+              <span class="">1</span>
+              <span class="">0</span>
+            </div>
+            <h3>get ready</h3>
+    </div>
+
+    <div class="message">
+        start now !!!
+    </div>
+    
+           
+
+</div>
+   
+    <script>
+        const go=document.querySelector(".go")
+        const btnStart=document.querySelector(".start");
+        const displayDiv=document.querySelector(".display")
+        const counters=document.querySelectorAll(".counter span");
+        const message=document.querySelector(".message")
+        function resetDom(){
+            go.classList.add('hidden');
+            displayDiv.classList.add("show");
+            counters.forEach(counter=>{
+                counter.className="";
+                counters[0].classList.add("in")
+            })
+        }
+        runAnimation()
+        //when click on start we hide the go div and display the other one
+        btnStart.addEventListener("click",()=>{
+            resetDom()
+            runAnimation()
+        })
+
+        function runAnimation(){
+            
+            counters.forEach((counter,index)=>{
+                const CountersLength=counters.length-1;
+                
+                counter.addEventListener("animationend",(e)=>{
+                    console.log(e)
+                    if(e.animationName==="rotateUp" && index != CountersLength){
+                        
+                        counter.classList.remove("in");
+                        counter.classList.add("out");
+                    }else if(e.animationName==="rotateDown" && index !=CountersLength){
+                        counter.classList.remove("out");
+                        counters[index+1].classList.add("in")
+                    }else{
+                        message.classList.add("show");
+                        displayDiv.classList.remove("show")
+                    }
+                })
+            })
+        }
+       
+    </script>
+</body>
+</html>

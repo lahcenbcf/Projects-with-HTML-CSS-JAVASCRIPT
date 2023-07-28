@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>FeedBack</title>
+</head>
+<body>
+    <div class="feedBack-box">
+        <h4>What did you enjoy most about your experience?</h4>
+        <div class="emojis-boxes">
+            <div class="box">
+                <i class="fa-solid fa-thumbs-up"></i>
+                <h2>Good</h2>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-face-smile"></i>
+                <h2>...</h2>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-face-frown"></i>
+                <h2>Bad</h2>
+            </div>
+        </div>
+        <button class="submit-btn">submit</button>
+    </div>
+    <div class="answerMessage-box">
+        <div class="thank">
+            <i class="fa-solid fa-heart"></i>
+            <h2>thank You !!!</h2>
+        </div>
+    </div>
+    <script>
+        const submitBtn=document.querySelector(".submit-btn");
+        const boxes=document.querySelectorAll(".emojis-boxes div");
+        const feedBackWrapper=document.querySelector(".feedBack-box");
+        const messageWrapper=document.querySelector(".answerMessage-box");
+        boxes.forEach((box)=>{
+            box.addEventListener("click",()=>{
+                if(isBoxActive()){
+                    resetBoxes()
+                    box.classList.add("active")
+                }else{
+                    box.classList.add("active")
+                }
+                
+            })
+        })
+
+        submitBtn.addEventListener("click",()=>{
+            if(isBoxActive()){
+                feedBackWrapper.classList.add("hidden");
+                messageWrapper.classList.add("show")
+            }else{
+                alert("choose a feedback")
+            }
+        })
+
+
+
+        function resetBoxes(){
+            boxes.forEach((box)=>{
+                box.classList.remove("active")  
+        })
+        }
+
+
+
+        function isBoxActive(){
+            var isActive=false;
+            boxes.forEach(box=>{
+                if(box.classList.contains("active")){
+                    isActive=true;
+                }
+            })
+
+            return isActive;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+  width:100vw;  
+  height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+
+.slides-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.slides-container:last-child{
+    display: none;
+}
+
+.right-side{
+    width:40%;
+    transition: transform .4s ease-in-out;
+}
+.right-side > div{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+    position: relative;
+    
+    flex-direction: column;
+    padding: 0px 30px;
+    z-index: -2;
+}
+.right-side >div::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0,0.6);
+    z-index: -1;
+}
+.right-side > div h1{
+    color: white;
+}
+
+.right-side > div p{
+   font-weight: bold;
+}
+.left-side{
+    width:70%;
+    transition: transform .4s ease-in-out;
+}
+.left-side > div{
+    height: 100vh;
+}
+
+.arrows{
+    position: absolute;
+    top: 50%;
+    left: 32%;
+    display: flex;
+    gap: 30px;
+}
+.arrows>i{
+    cursor: pointer;
+   
+}
+.arrows>i:hover{
+    cursor: pointer;
+   cursor: pointer;
+}
+.arrows>i:nth-child(1){
+    color: black;
+    background: white;
+    padding: 10px;
+    border-radius: 2px;
+}
+.arrows>i:nth-child(2){
+    color: white;
+    background: black;
+    padding: 10px;
+    border-radius: 2px;
+}

@@ -1,0 +1,34 @@
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+   overflow: scroll;
+   overflow-x: hidden;
+}
+.box{
+    height: 200px;
+    width: 200px;
+    margin: 40px;
+    border-radius: 62px;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow:  7px 7px 42px #d1d1d1,
+                 -7px -7px 42px #ffffff;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 transform: translateX(800px);
+    transition: transform .4s ease;
+}
+.box:nth-of-type(even){
+    transform: translateX(-800px);
+}
+.box.show{
+    transform: translateX(0px);
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" referrerpolicy="no-referrer" />
+    <title>Password Strength Image</title>
+</head>
+<body>
+    <div class="form bg-white p-5 shadow-md rounded text-center">
+        <h1 class="text-xl">Password Strength</h1>
+        <p class="text-sm text-gray">Type the correct password and watch the effect</p>
+        <div class="strength">
+            <div class="active"></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+        </div>
+        <label for="email">Email :</label>
+        <input type="text" id="email" placeholder="Email" autofocus>
+        <label for="password">Password :</label>
+        <input type="text" id="password" placeholder="Password" autofocus>
+        <button type="submit">submit</button>
+    </div>
+
+    <script>
+        const htmlElement=document.documentElement;
+        const passwordInput=document.getElementById("password");
+        const EmailInput=document.getElementById("email");
+        const emailLabel=document.querySelectorAll(".form label")[0];
+        const passwordLabel=document.querySelectorAll(".form label")[1];
+        const strengthWrapper=document.querySelector(".strength");
+        const bulls=document.querySelectorAll(".strength > div");
+
+        //focus event
+        EmailInput.addEventListener("focus",()=>{
+            emailLabel.classList.add("active")
+        })
+        passwordInput.addEventListener("focus",()=>{
+           passwordLabel.classList.add("active")
+        })
+
+
+        //focusout
+        EmailInput.addEventListener("focusout",()=>{
+            emailLabel.classList.remove("active")
+        })
+        passwordInput.addEventListener("focusout",()=>{
+           passwordLabel.classList.remove("active")
+        })
+
+        passwordInput.addEventListener("keyup",(e)=>{
+            console.log("called");
+            const caracteArray=e.target.value.split("");
+            const length=caracteArray.length-1;
+            console.log(caracteArray)
+            bulls.forEach((element,idx)=>{
+                if(idx<=length){
+                    element.classList.add("active")
+                }else{
+                    element.classList.remove("active")
+                }
+            })
+            if(length<=2){
+                htmlElement.style.setProperty("--status-color","#dc2f2f")
+            }else if(length<=4){
+                htmlElement.style.setProperty("--status-color","#ff894c")
+            }else{
+                htmlElement.style.setProperty("--status-color","#42b883")
+            }
+        })
+
+    </script>
+</body>
+</html>

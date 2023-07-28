@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Dell & thinkPad</title>
+</head>
+<body>
+  <div class="container">
+    <div class="split right">
+        <h1>DELL</h1>
+        <a href="http://">buy now</a>
+    </div>
+    <div class="split left">
+        <h1>THINKPAD</h1>
+        <a href="http://">buy now</a>
+    </div>
+  </div> 
+  <script>
+    const leftSide=document.querySelector(".split.left");
+    const rightSide=document.querySelector(".split.right");
+    const container=document.querySelector(".container")
+    leftSide.addEventListener("mouseenter",()=>{
+        
+            container.classList.add("hover-left");
+    })
+    leftSide.addEventListener("mouseout",()=>{
+        
+        container.classList.remove("hover-left");
+})
+rightSide.addEventListener("mouseenter",()=>{
+        
+        container.classList.add("hover-right");
+})
+rightSide.addEventListener("mouseout",()=>{
+    
+    container.classList.remove("hover-right");
+})
+    
+  </script> 
+</body>
+</html>

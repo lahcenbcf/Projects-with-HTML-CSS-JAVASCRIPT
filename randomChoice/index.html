@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>random animations</title>
+</head>
+<body>
+<h1>animated navBar ! </h1>
+    <nav class="">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>more</li>
+            <li>see</li>
+            <li>contact</li>
+         </ul>
+    </nav>
+
+
+    <button class="click" style="margin: 40px auto;">
+        click me 
+        
+    </button>
+
+    <div class="loading">
+
+    </div>
+
+    <div class="container1">
+        <div class="shape1">
+
+        </div>
+        <div class="shape2">
+
+        </div>
+    </div>
+    <script>
+   
+        const nav=document.querySelector('nav')
+        nav.addEventListener("mouseenter",()=>{
+            nav.classList.add("active")
+            setTimeout(()=>{
+                nav.classList.remove("active")
+            },2000)
+        })
+
+        
+
+
+        const button=document.querySelector(".click");
+        button.addEventListener("click",(e)=>{
+            var x=e.clientX;
+            var y=e.clientY;
+            const buttonTop=e.target.offsetTop;
+            const buttonLeft=e.target.offsetLeft;
+
+            console.log(x,y);
+            console.log(buttonTop,buttonLeft);
+
+            const xInside=x-buttonLeft;
+            const yInside=y-buttonTop;
+            const circle=document.createElement("span");
+            circle.classList.add("circle");
+            circle.style.top=yInside+"px";
+            circle.style.left=xInside+"px";
+           
+            button.appendChild(circle);
+        })
+    </script>
+</body>
+</html>

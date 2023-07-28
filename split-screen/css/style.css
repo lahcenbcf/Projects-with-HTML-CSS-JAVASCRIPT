@@ -1,0 +1,87 @@
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: monospace;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.container{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.split{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.split.right{
+    background: url("../img/pexels-yash-maramangallam-9474023.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    transition: width .4s ease;
+}
+.split.right::before{
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top:0;
+    background-color:rgba(66, 152, 223, 0.397);
+}
+.split.left{
+    background: url("../img/pexels-olena-bohovyk-3550483.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    transition: width .4s ease;
+}
+.split.left::before{
+     content: "";
+     position: absolute;
+     height: 100%;
+     width: 100%;
+     top: 0;
+     left: 0;
+     background-color: rgba(233, 12, 12, 0.527);
+}
+h1{
+ z-index: 10;
+ font-size: 60px;
+}
+a{
+    text-decoration: none;
+    font-size: x-large;
+    color: white;
+    z-index: 9;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: black;
+}
+.hover-left {
+    .left{
+   
+        width:75%;
+    }
+        .right{
+            width: 25%;
+        }
+}
+.hover-right{
+    .left{
+        width: 25%;
+    }
+    .right{
+        width: 75%;
+    }
+}
