@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>fetch github profiles</title>
+</head>
+<body>
+    <h1>I am lahcen , full stack developer !</h1>
+<script>
+    var text=document.querySelector("h1").textContent;
+    document.querySelector("h1").textContent="";
+    var speed=200;
+    var idx=1;
+    function showText(input){
+        var idx=1;
+
+        setInterval(()=>{
+            console.log("called")
+        document.querySelector("h1").textContent+=input.substring(0,1);
+        input=input.substring(1);
+        if(idx>text.length-1){
+            idx=1;
+            document.querySelector("h1").textContent="";
+            input=text;
+        }else idx++;
+        
+    },speed);
+
+
+    }
+   
+
+    showText(text);
+    
+</script>
+</body>
+</html>

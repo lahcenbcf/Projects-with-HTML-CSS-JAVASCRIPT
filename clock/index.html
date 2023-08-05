@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>clock</title>
+</head>
+<body>
+ 
+
+
+<div class="clock-container">
+    <div class="clock">
+        <div class="needle hour" id="hour"></div>
+        <div class="needle minute" id="minute"></div>
+        <div class="needle seconds" id="seconds"></div>
+        <div class="center"></div>
+    </div>
+    <div class="time">
+        <span class="time-hour">12</span>
+        <span>:</span>
+        <span class="time-min">00</span>
+        <span>:</span>
+        <span class="time-sec">00</span>
+    </div>
+   
+</div>
+
+<script>
+    const clock=document.querySelector(".clock");
+    const hourNeedle=document.getElementById('hour')
+    const minutesNeedle=document.getElementById("minute");
+    const secondsNeedle=document.getElementById("seconds");
+    function scale (number, inMin, inMax, outMin, outMax) {
+    return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+}
+    setInterval(()=>{
+        const date=new Date();
+        const hour=date.getHours()%12;
+        const minute=date.getMinutes();
+        const seconds=date.getSeconds();
+        const hourTime=document.querySelector(".time-hour")
+        const minuteTime=document.querySelector(".time-min")
+        const secondsTime=document.querySelector(".time-sec");
+        hourTime.innerHTML=`${hour<10 ? "0"+hour.toString() : hour}`
+        minuteTime.innerHTML=`${minute<10 ? "0"+minute.toString():minute}`
+        secondsTime.innerHTML=`${seconds<10 ? "0"+seconds.toString():seconds}`
+        hourNeedle.style.transform=`rotate(${scale(hour,0,11,0,360)}deg)`
+        minutesNeedle.style.transform=`rotate(${scale(minute,0,59,0,360)}deg)`
+        secondsNeedle.style.transform=`rotate(${scale(seconds,0,59,0,360)}deg)`
+    },1000)
+   
+
+</script>
+</body>
+</html>

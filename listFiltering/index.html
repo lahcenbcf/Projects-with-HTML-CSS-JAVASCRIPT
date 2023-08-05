@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>listFiltering</title>
+</head>
+<body>
+    <div class="list-container">
+        <div class="list-header">
+            <h3>Live User Filter</h2>
+                <p>enter keyword for search</p>
+                <input type="text" placeholder="search" class="search" required>
+        </div>
+        <div class="list-content">
+
+        </div>
+    </div>
+    <script>
+         const APIURL="https://reqres.in/api/users?page=2";
+         const searchInput=document.querySelector(".search");
+         const listContent=document.querySelector(".list-content");
+         let users=[];
+         let userList=[];
+        async function getUsers(){
+            const response=await fetch(APIURL);
+            const data=await response.json();
+            users=data.data;
+            displayUsers(users)
+            }
+        getUsers();
+
+
+
+        function displayUsers(users){
+            users.forEach(user=>{
+            const wrapper=document.createElement("div");
+            const nestedDiv=document.createElement("div");
+            nestedDiv.classList.add("titles")
+            const name=document.createElement("h4");
+            name.textContent=`${user.first_name} ${user.last_name}`
+            const email=document.createElement("p");
+            email.textContent=user.email;
+            nestedDiv.appendChild(name);
+            nestedDiv.appendChild(email);
+            const avatar=document.createElement("div");
+            avatar.classList.add("avatar");
+            avatar.style.backgroundImage= `url(${user.avatar})`;
+            wrapper.appendChild(avatar);
+            wrapper.appendChild(nestedDiv);
+            listContent.appendChild(wrapper);
+            
+            
+        })
+        userList=document.querySelectorAll(".list-content>div");
+        
+        }
+       
+        
+        searchInput.addEventListener("input",(e)=>{
+            var input=e.target.value.toUpperCase();
+            var newUserList=[];
+            /*const newUserList= userList.filter(item=>{
+                const whereToSearch=item.querySelector("titles h4");
+                return whereToSearch.textContent.includes(input);
+            })*/
+            userList.forEach(item=>{
+                const whereToSearch=item.querySelector(".titles h4");
+                whereToSearch.textContent.toUpperCase().includes(input) && newUserList.push(item);
+            })
+            listContent.innerHTML="";
+            if(!newUserList.length){
+                listContent.innerHTML=`<h4>no matching element found</h4>`
+            }else{
+                newUserList.forEach(item=>listContent.appendChild(item))
+            }
+           
+
+        })
+        
+        
+    </script>
+</body>
+</html>

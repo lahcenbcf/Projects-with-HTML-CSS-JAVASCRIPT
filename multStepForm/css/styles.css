@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+   
+    width: 100vw;
+    background: linear-gradient(to left, #43c6ac, #f8ffae);
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 450px;
+    padding: 40px 20px;
+    overflow: hidden;
+}
+.steps-container{
+    position: relative;
+    width: 400px;
+    background-color: darkgray;
+    height: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.steps{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100px;
+    border-radius: 5px;
+    background-color: #43c6ac;
+
+}
+
+.steps-container .circle{
+    height: 40px;
+    width: 40px;
+    z-index: 1;
+    border-radius: 50%;
+    background-color: darkgray;
+    display: flex;
+    align-items: center;
+    color: white;
+    position: relative;
+    justify-content: center;
+
+}
+
+
+[data]{
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+.circle.filled{
+    background-color:#43c6ac ;
+}
+
+.circle::after{
+    content:attr(data);
+    position: absolute;
+    top: 50px;
+
+}
+
+.form{
+    width: 100%;
+    margin: 70px auto;
+}
+
+.form > div{
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    min-width: 400px;
+    transition: display .5s ease-in-out;
+    display: none;
+    background-color: white;
+}
+.form > div.active{
+    display: flex;
+}
+
+
+input{
+    padding: 20px 20px;
+    width: 100%;
+    margin: 20px;
+    border: solid 1px gray;
+    border-radius: 5px;
+}
+h4{
+    margin: 10px 0px;
+}
+input:focus,button:focus{
+    outline: none;
+}
+.buttons{
+    display: flex;
+    gap: 20px;
+}
+button{
+    padding: 10px 20px;
+    background-color: rgba(32, 179, 105, 0.849);
+    color: white;
+    border: none;
+    font-weight:bold;
+}

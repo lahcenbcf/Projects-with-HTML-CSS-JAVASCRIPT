@@ -1,0 +1,94 @@
+*::after,*,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+:root{
+    --dark-color:#000;
+    --light-color:#fff;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+}
+
+
+
+
+.clock-container{
+    display: flex;
+    padding: 20px;
+    margin: 60px auto;
+    align-items: center;
+    max-width: 500px;
+    flex-direction: column;
+    height: 300px;
+    width: 400px;
+    border: solid 1px;
+
+}
+
+.clock{
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    background-image: url("../img/pngegg.png");
+    background-position: center center;
+    background-size: cover;
+    border: solid 1px var(--dark-color);
+    position: relative;
+}
+.needle{
+    position: absolute;
+    height: 40px;
+    width: 2px;
+    background-color: var(--dark-color);
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: bottom center;
+    transition: all .4s ease-in-out;
+}
+.needle.hour{
+    background-color: red;
+    height: 30px;
+   
+}
+.needle.minute{
+    background-color: blue;
+}
+.center{
+    height: 6px;
+    width: 6px;
+    background-color: var(--dark-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.time{
+    margin: 30px auto;
+}
+
+.time span{
+    color: var(--dark-color);
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+.date{
+    font-size: 20px;
+    margin: 0px 30px auto;
+    color: gray;
+}
+

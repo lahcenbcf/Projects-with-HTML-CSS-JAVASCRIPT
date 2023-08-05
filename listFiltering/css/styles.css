@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    position: relative;
+    font-family: 'Rubik', sans-serif;
+    background-color: #ddeedf;
+}
+.list-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 480px;
+    width: 350px;
+box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+    overflow-y: scroll;
+    border-radius: 10px;
+}
+.list-container .list-header{
+    height: 150px;
+    padding: 10px;
+    background-color: #10316b;
+    width: 100%;
+}
+.list-header h3,.list-header p{
+    color: white;
+    margin: 10px 0px;
+}
+.list-header .search{
+    padding: 10px 10px;
+    width: 80%;
+    margin: 10px auto;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: #11144c;
+    &::placeholder{
+        color: white;
+        margin-left: 5px;
+    }
+    &:focus{
+        outline: none;
+    }
+}
+
+.list-content > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px auto;
+    padding: 10px;
+    border-bottom: solid 1px #5c715e;
+}
+.list-content > div .avatar{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.list-content > div > .titles{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
