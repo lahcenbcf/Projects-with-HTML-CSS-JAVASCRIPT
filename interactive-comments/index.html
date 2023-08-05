@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <title>Interactive Comments</title>
+</head>
+<body>
+    <div class="post">
+        <div class="post-header">
+            <div class="current-user">
+                <div class="user-image"></div>
+                <div class="user-info">
+                    <h3 class="user-name">Ali Reza</h3>
+                    <h6 class="user-job">Next.js enthusiast and content creator</h6>
+                    <p class="time-ago">2 days ago</p>
+                </div>
+            
+            </div>
+            <div class="post-des">
+                <p>Ante taciti nulla sit libero orci sed nam. Sagittis suspendisse gravida ornare iaculis cras nullam varius ac ullamcorper. Nunc euismod hendrerit netus ligula aptent potenti. Aliquam volutpat nibh scelerisque at.</p>
+            </div>
+            <div class="post-toggles">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            
+        </div>
+        <!--post -content-->
+        <div class="post-content">
+            <h3>post image</h3>
+        </div>
+        <!--post -statistics-->
+        <div class="post-statistics">
+            <div class="likes">32
+                
+            </div>
+            <div class="comments">32 comment</div>
+        </div>
+        <!--post buttons-->
+        <div class="post-buttons">
+            <div class="like">
+                <i class="fa-regular fa-thumbs-up"></i>
+                <span>Like</span>
+            </div>
+            <div class="comment">
+                <i class="fa-regular fa-comment"></i>
+                <span>Comment</span>
+            </div>
+            <div class="share">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>Share</span>
+            </div>
+            <div class="save">
+                <i class="fa-regular fa-bookmark"></i>
+                <span>Save</span>
+            </div>
+            
+        </div>
+
+        <!--comment input-->
+            <div class="comment-input">
+                <input type="text" class="input" placeholder="comment ....">
+                <i class="fa-solid fa-paper-plane 1"></i>
+            </div>
+        <!--Comment section-->
+        <div class="post-comments">
+            <div class="comment-body">
+                <div class="comment-container">
+                    <div class="up-down">
+                        <i class="fa-solid fa-plus"></i>
+                        <div class="likes-num">12</div>
+                        <i class="fa-solid fa-minus"></i>
+                    </div>
+                    
+                    <div class="comment-info">
+                        <!--user info-->
+                        <div class="user">
+                            <div class="user-image"></div>
+                            <div class="user-info">
+                                <h3 class="user-name">Ali Reza</h3>
+                                <p class="time-ago">2 days ago</p>
+                            </div>
+                        
+                        </div>
+                        <!--comment text-->
+                        <div class="comment-text">
+                            <p class="text">Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.</p>
+    
+                        </div>
+                    </div>
+                    <div class="replay">
+                        <i class="fa-solid fa-reply"></i>
+                    </div>
+
+                   
+                </div>
+                
+                <!--replay section-->
+                <div class="replys-section">
+                    <div class="replay-container">
+                        <div class="up-down">
+                            <i class="fa-solid fa-plus"></i>
+                            <div class="likes-num">12</div>
+                            <i class="fa-solid fa-minus"></i>
+                        </div>
+                        
+                        <div class="comment-info">
+                            <!--user info-->
+                            <div class="user">
+                                <div class="user-image"></div>
+                                <div class="user-info">
+                                    <h3 class="user-name">Ali Reza</h3>
+                                    <p class="time-ago">2 days ago</p>
+                                </div>
+                            
+                            </div>
+                            <!--comment text-->
+                            <div class="comment-text">
+                                <p class="text">@user Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.</p>
+        
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
